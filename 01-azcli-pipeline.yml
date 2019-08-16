@@ -21,4 +21,4 @@ jobs:
     trigger: true
   - task: test-azcli
     image: az-cli-image
-    file: azs-concourse/ci/tasks/test-task.yml
+    file: azs-concourse/tasks/test-task.yml
