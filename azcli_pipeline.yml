@@ -1,0 +1,24 @@
+---
+# example tasks
+resources:
+- name: azcli-concourse
+  type: git
+  source: 
+    uri: ((azcli-concourse-uri))
+    branch: master
+
+- name: az-cli-image
+  type: docker-image
+  source: 
+    repository: microsoft/azure-cli
+
+jobs:
+- name: test-azcli 
+  plan:
+  - get: acli-concourse
+    trigger: true
+  - get: az-cli-image
+    trigger: true
+  - task: test-azcli
+    image: az-cli-image
+    file: azs-concourse/ci/tasks/test-task.yml
