@@ -17,7 +17,7 @@ resources:
 jobs:
 - name: test-azcli 
   plan:
-  - get: acli-concourse
+  - get: azcli-concourse
     trigger: true
   - get: az-cli-image
     trigger: true
